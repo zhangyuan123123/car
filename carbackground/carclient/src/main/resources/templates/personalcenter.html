@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)https://my.1hai.cn/Order/MyOrders -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>我的一嗨</title>
+
+    <!--layui js css-->
+    <script src="/layui/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" href="/layui/css/layui.css" />
+    <link rel="stylesheet" href="/layui/css/modules/laydate/default/laydate.css">
+    <link rel="stylesheet" href="/layui/css/layui.css"  media="all">
+    <script type="text/javascript" src="/layui/layui.js"></script>
+    <script src="/layui/layui.all.js" charset="UTF-8"></script>
+    <!--layui js css 结束-->
+
+
+    <link rel="shortcut icon" href="https://www.1hai.cn/favicon.ico?v=e7684f26e7a6489ca0b1ba728fbdace8" type="image/x-icon">
+    <link href="/jsscsspc/bootstrap.min.css" rel="stylesheet">
+    <link href="/jsscsspc/Global.css" rel="stylesheet">
+    <link href="/jsscsspc/loginRegister.css" rel="stylesheet">
+    <script type="text/javascript" async="" src="/jsscsspc/sm.js"></script><script charset="utf-8" src="/jsscsspc/b.js"></script><script charset="utf-8" src="/jsscsspc/v.js"></script><script src="/jsscsspc/sensorsdata.min.js" charset="UTF-8"></script><script type="text/javascript">
+        //移动终端判断 true 移动终端 false否
+        var u = navigator.userAgent;
+        if (!!u.match(/AppleWebKit.*Mobile.*/) == false && u.indexOf('Android') == -1 && u.indexOf('iPhone') == -1 && u.indexOf('iPad') == -1) {
+            //web浏览器
+        } else {
+            var reqUrl = location.href;
+            var pc = sessionStorage.getItem("pc");
+            if (reqUrl.indexOf('mehi=F') === -1 && pc !== "1") {
+                window.location.href = "https://m.1hai.cn/";
+            }
+            window.sessionStorage["pc"] = "1";
+        }
+    </script>
+    
+    
+
+<script src="/jsscsspc/pc_nb.js" charset="UTF-8"></script><link rel="stylesheet" type="text/css" href="/jsscsspc/main.css"><script type="text/javascript" src="/jsscsspc/poll" id="id_jsonp_bridge_1560924750758_6462227561835594" charset="utf-8"></script></head>
+<body style="">
+    <div>
+<div class="header">
+    <div class="head-top">
+        <div class="w1180 top-linkbox clear_float">
+            <div class="top-link fl">
+                <span class="top-link-bold" id="spanLogin">
+                        <span>您好，138****137</span>
+<a href="https://my.1hai.cn/User/Logout">[退出]</a>                </span>
+                <span>|</span>
+                <a href="https://my.1hai.cn/">我的一嗨</a>
+            </div>
+            <div class="top-link fr">
+                <a href="https://www.1hai.cn/NewHelp/Index" target="_blank">帮助中心</a>
+                <span>|</span>
+                <div class="site-map">
+                    <a class="site-map-drop" target="_blank" href="https://www.1hai.cn/sitemap.aspx?from=header">网站导航<em class="sit-map-up dropicon"></em></a>
+                    <div class="site-mapinfo">
+                        <div class="cover-map"></div>
+                        <div class="site-map-title">
+                            租车服务
+                        </div>
+                        <p class="site-map-link">
+                            <a href="https://www.1hai.cn/?from=header" target="_blank">自驾预订</a>
+                            <a href="https://corporate.1hai.cn/" target="_blank">企业服务</a>
+                            <a href="https://www.1hai.cn/City/?from=header" target="_blank">营业网点</a>
+                            <a href="https://booking.1hai.cn/Order/BrandStep1/?from=header" target="_blank">车型查询</a>
+                            <a href="https://news.1hai.cn/News/Dynamic/Activity" target="_blank">精彩活动</a>
+                            <a href="https://www.1hai.cn/help/RentCarService.aspx" target="_blank">租车协议</a>
+                            <a href="https://international.1hai.cn/" target="_blank">国际租车</a>
+                        </p>
+                        <div class="site-map-title">
+                            活动产品
+                        </div>
+                        <p class="site-map-link">
+                            <a href="https://www.1hai.cn/ppl_tiyan.aspx?from=header" target="_blank">体验分享</a>
+                            <a href="https://www.1hai.cn/activity/mobile.aspx" target="_blank">移动客户端</a>
+                        </p>
+                        <div class="site-map-title">
+                            帮助中心
+                        </div>
+                        <p class="site-map-link">
+                            <a href="https://www.1hai.cn/NewHelp/Index" target="_blank">帮助中心</a>
+                            <a href="https://www.1hai.cn/help/advice.aspx" target="_blank">建议专区</a>
+                            <a href="https://www.1hai.cn/help/contactus.aspx" target="_blank">联系我们</a>
+                        </p>
+                        <div class="site-map-title">
+                            其他内容
+                        </div>
+                        <p class="site-map-link">
+                            <a href="https://news.1hai.cn/News/About/" target="_blank">一嗨简介</a>
+                            <a href="https://news.1hai.cn/News" target="_blank">一嗨动态</a>
+                            <a href="https://www.1hai.cn/more/link.aspx?from=header" target="_blank">友情链接</a>
+                            <a href="https://en.1hai.cn/" target="_blank">English</a>
+                        </p>
+                        <div class="site-map-more">
+                            <a href="https://www.1hai.cn/sitemap.aspx?from=header" target="_blank">访问网站地图&gt;&gt;</a>
+                        </div>
+                    </div>
+                </div>
+                <span>|</span>
+                <a href="https://en.1hai.cn/" target="_blank">English</a>
+                <span>|</span>
+                <div class="site-contact">
+                    <span class="contact-phone">400-888-6608<em class="contact-up dropicon"></em></span>
+                    <div class="contact-info">
+                        <div class="cover-contact" style="width: 94px;"></div>
+                        港澳台及海外电话
+                        <em>+86-511-81886608</em>
+                    </div>
+                </div>
+                <span>|</span>
+                <div class="site-wx">
+                    <span class="wx-title">微信</span>
+                    <div class="wx-info">
+                        <div class="cover-wx"></div>
+                        <img src="/jsscsspc/wx_code.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="head-bottom">
+        <div class="w1180">
+            <a href="https://www.1hai.cn/" class="logo"></a>
+            <div class="nav">
+                <ul class="nav-wrap clear_float" id="J_NavBox">
+                    <li><a href="https://www.1hai.cn/index.aspx?from=Nav" target="_blank">首页</a><span></span></li>
+                    <li><a href="https://booking.1hai.cn/?from=NavIndex&amp;IsBatch=false" target="_blank">自驾租车</a><span></span></li>
+                    <li><a href="https://international.1hai.cn/" target="_blank">国际租车</a><span></span><em></em></li>
+                    <li><a href="https://booking.1hai.cn/Order/BrandStep1/?from=NavBrandIndex" target="_blank">车型查询</a><span></span></li>
+                    <li><a href="https://www.1hai.cn/City/?from=Nav" target="_blank" class="selected">营业网点</a><span></span></li>
+                    <li><a href="https://corporate.1hai.cn/?from=Nav" target="_blank">企业服务</a><span></span></li>
+                    <li><a href="https://www.1hai.cn/guide.aspx?from=Nav" target="_blank">接送服务</a><span></span></li>
+                    <li><a href="https://news.1hai.cn/News/Dynamic/Activity" target="_blank">精彩活动</a><span></span></li>
+                    <li><a href="https://www.1hai.cn/ppl_tiyan.aspx?from=Nav" target="_blank">体验分享</a><span></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+        
+        
+
+<div id="crumbs">
+    <div class="crumbs-bd">
+        当前位置：
+        <a href="https://my.1hai.cn/">我的一嗨</a> &gt;
+        
+    订单管理
+
+    </div>
+</div><!-- /crumbs -->
+
+<div id="content">
+    <div class="content-bd">
+
+        <div class="col-main">
+
+               <div class="layui-tab">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this">全部订单</li>
+                        <li>租赁中</li>
+                        <li>已完成</li>
+                        <li>已过期</li>
+                    </ul>
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                            <table class="layui-hide" id="roleList" lay-filter="roleTable"></table>
+                        </div>
+                        <div class="layui-tab-item">
+                            <table class="layui-hide" id="roleList1" lay-filter="roleTable1"></table>
+                        </div>
+                        <div class="layui-tab-item">
+                            <table class="layui-hide" id="roleList2" lay-filter="roleTable2"></table>
+                        </div>
+                        <div class="layui-tab-item">
+                            <table class="layui-hide" id="roleList3" lay-filter="roleTable2"></table>
+                        </div>
+                    </div>
+                </div>
+
+<div class="orderdown">
+    <script>
+        layui.use(['form', 'layedit', 'laydate'], function(){
+            var form = layui.form
+                ,laydate = layui.laydate;
+
+            //日期
+            laydate.render({
+                elem: '#startDateId'
+            });
+            laydate.render({
+                elem: '#endDateId'
+            });
+        });
+    </script>
+    <script>
+
+        $(function (){
+            getRoleList(1);
+            getRoleList1(1);
+            getRoleList2(1);
+            getRoleList3(1);
+        })
+        function getRoleList(id){
+
+            layui.use(['table'], function(){
+                var table = layui.table;
+                table.render({
+                    elem: '#roleList'
+                    ,url:'/car/selectorder'
+                    ,where:{
+                        id:id
+                    }//传参
+                    ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+                    ,id:'testReload'
+                    ,cols: [
+                        [
+                            {field:'goodId',  title: 'ID', sort: true}
+                            ,{field:'goodNumber',  title: '订单编号'}
+                            ,{field:'goodPrice',  title: '订单价钱'}
+                            ,{field:'carXingName',  title: '汽车名字'}
+                            ,{field:'number',  title: '车牌'}
+                            ,{field:'dateNumber',  title: '天数'}
+                            ,{field:'carSome',  title: '取车点'}
+                            ,{field:'carPoint',  title: '还车点'}
+                            ,{field:'createTime',  title: '创建时间'}
+                            ,{field:'endTime',  title: '结束时间'}
+                            ,{field:'status',  title: '订单状态',
+                            templet: function (d) {
+                                if (d.status == 1) {
+                                    return "已审核";
+                                } else if (d.status == 2) {
+                                    return "未审核";
+                                }
+                            }}
+                        ]
+                    ]
+                });
+                //通过添加监听
+                table.on('tool(roleTable)', function(obj) {
+                    data = obj.data;
+                    data.id
+                    //然后data.你的值就可以了
+                })
+            });
+        }
+        function getRoleList1(id){
+
+            layui.use(['table'], function(){
+                var table = layui.table;
+                table.render({
+                    elem: '#roleList1'
+                    ,url:'/car/selectdingdanByzhuangtai'
+                    ,where:{
+                        id:id
+                    }//传参
+                    ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+                    ,id:'testReload'
+                    ,cols: [
+                        [
+                            {field:'goodId',  title: 'ID', sort: true}
+                            ,{field:'goodNumber',  title: '订单编号'}
+                            ,{field:'goodPrice',  title: '订单价钱'}
+                            ,{field:'carXingName',  title: '汽车名字'}
+                            ,{field:'number',  title: '车牌'}
+                            ,{field:'dateNumber',  title: '天数'}
+                            ,{field:'carSome',  title: '取车点'}
+                            ,{field:'carPoint',  title: '还车点'}
+                            ,{field:'createTime',  title: '创建时间'}
+                            ,{field:'endTime',  title: '结束时间'}
+                            ,{field:'status',  title: '订单状态',
+                            templet: function (d) {
+                                if (d.status == 1) {
+                                    return "已审核";
+                                } else if (d.status == 2) {
+                                    return "未审核";
+                                }
+                            }}
+                        ]
+                    ]
+                });
+                //通过添加监听
+                table.on('tool(roleTable1)', function(obj) {
+                    data = obj.data;
+                    data.id
+                    //然后data.你的值就可以了
+                })
+            });
+        }
+        function getRoleList2(id){
+
+            layui.use(['table'], function(){
+                var table = layui.table;
+                table.render({
+                    elem: '#roleList2'
+                    ,url:'/car/seedingdanByzhuangtai'
+                    ,where:{
+                        id:id
+                    }//传参
+                    ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+                    ,id:'testReload'
+                    ,cols: [
+                        [
+                            {field:'goodId',  title: 'ID', sort: true}
+                            ,{field:'goodNumber',  title: '订单编号'}
+                            ,{field:'goodPrice',  title: '订单价钱'}
+                            ,{field:'carXingName',  title: '汽车名字'}
+                            ,{field:'number',  title: '车牌'}
+                            ,{field:'dateNumber',  title: '天数'}
+                            ,{field:'carSome',  title: '取车点'}
+                            ,{field:'carPoint',  title: '还车点'}
+                            ,{field:'createTime',  title: '创建时间'}
+                            ,{field:'endTime',  title: '结束时间'}
+                            ,{field:'status',  title: '订单状态',
+                            templet: function (d) {
+                                if (d.status == 1) {
+                                    return "已审核";
+                                } else if (d.status == 2) {
+                                    return "未审核";
+                                }
+                            }}
+
+                        ]
+                    ]
+                });
+                //通过添加监听
+                table.on('tool(roleTable2)', function(obj) {
+                    data = obj.data;
+                    data.id
+                    //然后data.你的值就可以了
+                })
+            });
+        }
+        function getRoleList3(id){
+
+            layui.use(['table'], function(){
+                var table = layui.table;
+                table.render({
+                    elem: '#roleList3'
+                    ,url:'/car/querydingdanBytime'
+                    ,where:{
+                        id:id
+                    }//传参
+                    ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+                    ,id:'testReload'
+                    ,cols: [
+                        [
+                            {field:'goodId',  title: 'ID', sort: true}
+                            ,{field:'goodNumber',  title: '订单编号'}
+                            ,{field:'goodPrice',  title: '订单价钱'}
+                            ,{field:'carXingName',  title: '汽车名字'}
+                            ,{field:'number',  title: '车牌'}
+                            ,{field:'dateNumber',  title: '天数'}
+                            ,{field:'carSome',  title: '取车点'}
+                            ,{field:'carPoint',  title: '还车点'}
+                            ,{field:'createTime',  title: '创建时间'}
+                            ,{field:'endTime',  title: '结束时间'}
+                            ,{field:'status',  title: '订单状态',
+                            templet: function (d) {
+                                if (d.status == 1) {
+                                    return "已审核";
+                                } else if (d.status == 2) {
+                                    return "未审核";
+                                }
+                            }}
+                        ]
+                    ]
+                });
+                //通过添加监听
+                table.on('tool(roleTable3)', function(obj) {
+                    data = obj.data;
+                    data.id
+                    //然后data.你的值就可以了
+                })
+            });
+        }
+        var data;
+    </script>
+
+
+    <script>
+        //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+        layui.use('element', function(){
+            var element = layui.element;
+        });
+    </script>
+
+</div>
+
+<div class="mod J_TabSwitch order-list driver-order" style="display: none;">
+    <div class="hd clearfix">
+        <h2>代驾订单</h2>
+        <ul class="ui-tab-hd">
+            <li class="ck"><a class="orderTab" data-table-class="driver-all" href="javascript:void(0)">全部订单</a></li>
+            <li><a class="orderTab" data-table-class="driver-wait" href="javascript:void(0)">待定中</a></li>
+            <li><a class="orderTab" data-table-class="driver-reserving" href="javascript:void(0)">预约中</a></li>
+            <li><a class="orderTab" data-table-class="driver-complete" href="javascript:void(0)">已完成</a></li>
+            <li><a class="orderTab" data-table-class="driver-canceled" href="javascript:void(0)">已取消</a></li>
+        </ul>
+    </div>
+    <div class="bd">
+        <div class="ui-loading">
+            <p>正在加载...</p>
+        </div>
+        <div class="ui-tab-bd" data-action="/Order/MyOrders/DriverOrders">
+            <div class="ui-table-list driver-all" data-status=""></div>
+            <div class="ui-table-list driver-wait" data-status="W" style="display: none;"></div>
+            <div class="ui-table-list driver-reserving" data-status="R" style="display: none;"></div>
+            <div class="ui-table-list driver-complete" data-status="V" style="display: none;"></div>
+            <div class="ui-table-list driver-canceled" data-status="F" style="display: none;"></div>
+        </div>
+        <div class="order-list-null" style="display: block;">
+            <p>您还没有订单，现在就去订车吧！</p>
+        </div>
+    </div>
+</div>
+
+<div class="mod J_TabSwitch order-list international-order" style="display: none;">
+    <div class="hd clearfix">
+        <h2>国际租车订单</h2>
+        <ul class="ui-tab-hd">
+            <li class="ck"><a class="orderTab" data-table-class="foreign-all" href="javascript:void(0)">全部订单</a></li>
+            <li><a class="orderTab" data-table-class="foreign-reserving" href="javascript:void(0)">预约中</a></li>
+            <li><a class="orderTab" data-table-class="foreign-canceled" href="javascript:void(0)">已取消</a></li>
+        </ul>
+    </div>
+    <div class="bd">
+        <div class="ui-loading">
+            <p>正在加载...</p>
+        </div>
+        <div class="ui-tab-bd">
+            <div class="ui-table-list foreign-all" data-status=""></div>
+            <div class="ui-table-list foreign-reserving" data-status="Reservation" style="display: none;"></div>
+            <div class="ui-table-list foreign-canceled" data-status="Cancel" style="display: none;"></div>
+        </div>
+        <div class="order-list-null" style="display: block;">
+            <p>您还没有订单，现在就去订车吧！</p>
+            <a class="ui-btn ui-btn-orange-l" href="https://international.1hai.cn/">立即预订</a>
+        </div>
+    </div>
+</div>
+
+        </div>
+
+        <!--站点导航-->
+
+
+<div class="col-sub">
+    <dl class="sub-nav">
+       
+    <dt>我的订单</dt>
+            <dd>
+                <a class=" ck" href="https://my.1hai.cn/Order/MyOrders">订单管理</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/Order/InternationalOrder">国际订单</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/Order/DriverOrder">他人代订</a>
+            </dd>
+    <dt>我的资产</dt>
+            <dd>
+                <a class="" href="https://my.1hai.cn/Asset/Account">账户余额</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/Asset/GiftCard">我的礼品卡</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/Asset/Promotion">我的优惠编码</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/Asset/MyPoint">我的积分</a>
+            </dd>
+    <dt>个人中心</dt>
+            <dd>
+                <a class="" href="/page/tousershow">用户信息</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/UserCenter/MyDrivers">常用租车人</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/UserCenter/MyInvoices">我的发票</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/UserCenter/MyVATInvoices">增票资质</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/UserCenter/MyViolation">我的违章</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/UserCenter/MyComplaint">在线投诉</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/Asset/Point/Mall">积分商城</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/UserCenter/MyEnterprise">企业信息</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/UserCenter/AccountLogout">申请注销账户</a>
+            </dd>
+
+    </dl>
+</div>
+        <!--站点导航-->
+    </div>
+</div>
+
+
+
+<div id="footer" class="footer">
+    <div class="footer-bd clearfix">
+        <div class="footer-nav">
+            <p>
+                <a href="https://news.1hai.cn/About/" rel="nofollow" target="_blank">关于一嗨</a>
+                |
+                <a href="https://www.1hai.cn/activity/mobile.aspx" rel="nofollow" target="_blank">移动客户端</a>
+                |
+                <a href="https://www.1hai.cn/NewHelp/Index" rel="nofollow" target="_blank">帮助中心</a>
+                |
+                <a href="https://www.1hai.cn/help/advice.aspx" rel="nofollow" target="_blank">建议专区</a>
+                |
+                <a href="https://www.1hai.cn/help/contactus.aspx" rel="nofollow" target="_blank">联系我们</a>
+                |
+                <a href="https://www.1hai.cn/more/link.aspx" rel="nofollow" target="_blank">友情链接</a>
+                <span class="tel">投诉通道：400-821-1608</span>
+            </p>
+            <p>
+                Copyright © 2007-2019 上海一嗨信息技术服务有限公司
+                <a href="http://www.miibeian.gov.cn/" target="_blank">ICP证：沪B2-20140130</a>
+            </p>
+        </div>
+
+        <div class="footer-right">
+            <a href="https://www.sgs.gov.cn/lz/licenseLink.do?method=licenceView&amp;entyId=20120327164136446" target="_blank">
+                <img src="/jsscsspc/foot_shgs.png">
+            </a>
+            <a href="http://www.zx110.org/" target="_blank">
+                <img src="/jsscsspc/foot_zxw.png">
+            </a>
+            <a href="https://shuidi.cn/companyextreme-0752d1acddc459c11bb8f943671a3347.html" target="_blank" style="vertical-align: -3px;">
+                <img src="/jsscsspc/foot_sdxy.png">
+            </a>
+            <a href="http://sealinfo.trustutn.org/info?sn=970161104025192983174" target="_blank" style="vertical-align: -3px;">
+                <img src="/jsscsspc/foot_ppgw.png">
+            </a>
+            <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010702001166" target="_blank" style="vertical-align: -3px;">
+                <img src="/jsscsspc/foot_hgwab.png">
+            </a>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Script -->
+    <script src="/jsscsspc/jquery"></script>
+
+    <script src="/jsscsspc/bootstrap"></script>
+
+    <script src="/jsscsspc/portal-header.js"></script>
+    
+    <script src="/jsscsspc/global.js"></script>
+    
+    <script>
+        var URL = {
+            getOrders: '/Order/MyOrders/Orders',
+            getDriverOrders:'/Order/MyOrders/DriverOrders'
+        };
+    </script>
+    <script src="/jsscsspc/myorders.js"></script>
+
+
+    <script type="text/javascript">
+        $.ajaxSetup({
+            statusCode: {
+                800: function (data) {
+                    
+                    window.location.href = "https://www.baidu.com";
+                }
+            }
+        });
+    </script>
+    <script>
+        (function (para) {
+            var p = para.sdk_url, n = para.name, w = window, d = document, s = 'script', x = null, y = null;
+            if (typeof (w['sensorsDataAnalytic201505']) !== 'undefined') {
+                return false;
+            }
+            w['sensorsDataAnalytic201505'] = n;
+            w[n] = w[n] || function (a) { return function () { (w[n]._q = w[n]._q || []).push([a, arguments]); } };
+            var ifs = ['track', 'quick', 'register', 'registerPage', 'registerOnce', 'trackSignup', 'trackAbtest', 'setProfile', 'setOnceProfile', 'appendProfile', 'incrementProfile', 'deleteProfile', 'unsetProfile', 'identify', 'login', 'logout', 'trackLink', 'clearAllRegister', 'getAppStatus'];
+            for (var i = 0; i < ifs.length; i++) {
+                w[n][ifs[i]] = w[n].call(null, ifs[i]);
+            }
+            if (!w[n]._t) {
+                x = d.createElement(s), y = d.getElementsByTagName(s)[0];
+                x.async = 0;
+                x.src = p;
+                x.setAttribute('charset', 'UTF-8');
+                y.parentNode.insertBefore(x, y);
+                w[n].para = para;
+            }
+        })({
+            sdk_url: 'https://static.sensorsdata.cn/sdk/1.12.3/sensorsdata.min.js',
+            heatmap_url: 'https://static.sensorsdata.cn/sdk/1.12.3/heatmap.min.js',
+            name: 'ehiSensors',
+            web_url: 'https://sensors.1hai.cn:9443/?project=production',
+            server_url: 'https://sensors.1hai.cn:11621/sa?project=production',
+            heatmap: {}
+            });
+        ehiSensors.quick('autoTrack');
+        var ehiid = "1920080676";
+        if (ehiid.length > 0) {
+            sensors.login(ehiid);
+        }
+    </script>
+
+
+        <script src="/jsscsspc/monitor-my.js"></script><script src="/jsscsspc/h.js" type="text/javascript"></script>
+    <script type="text/javascript" async="async">
+
+        var _smq = _smq || [];
+        _smq.push(['_setAccount', '251d452', new Date()]);
+        _smq.push(['pageview']);
+        (function () {
+            var sm = document.createElement('script'); sm.type = 'text/javascript'; sm.async = true;
+            sm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdnmaster.com/sitemaster/sm.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sm, s);
+        })();
+
+    </script>
+    <script>
+    (function (para) {
+        var p = para.sdk_url, n = para.name, w = window, d = document, s = 'script', x = null, y = null;
+        if (typeof (w['sensorsDataAnalytic201505']) !== 'undefined') {
+            return false;
+        }
+        w['sensorsDataAnalytic201505'] = n;
+        w[n] = w[n] || function (a) { return function () { (w[n]._q = w[n]._q || []).push([a, arguments]); } };
+        var ifs = ['track', 'quick', 'register', 'registerPage', 'registerOnce', 'trackSignup', 'trackAbtest', 'setProfile', 'setOnceProfile', 'appendProfile', 'incrementProfile', 'deleteProfile', 'unsetProfile', 'identify', 'login', 'logout', 'trackLink', 'clearAllRegister', 'getAppStatus'];
+        for (var i = 0; i < ifs.length; i++) {
+            w[n][ifs[i]] = w[n].call(null, ifs[i]);
+        }
+        if (!w[n]._t) {
+            x = d.createElement(s), y = d.getElementsByTagName(s)[0];
+            x.async = 0;
+            x.src = p;
+            x.setAttribute('charset', 'UTF-8');
+            y.parentNode.insertBefore(x, y);
+            w[n].para = para;
+        }
+    })({
+        sdk_url: 'https://static.sensorsdata.cn/sdk/1.12.3/sensorsdata.min.js',
+        heatmap_url: 'https://static.sensorsdata.cn/sdk/1.12.3/heatmap.min.js',
+        name: 'ehiSensors',
+        web_url: 'https://sensors.1hai.cn:9443/?project=production',
+        server_url: 'https://sensors.1hai.cn:11621/sa?project=production',
+        heatmap: {}
+    });
+
+    ehiSensors.quick('autoTrack');
+    var ehiid = "1920080676";
+    if (ehiid.length > 0) {
+        sensors.login(ehiid);
+    }
+    </script>
+    <script>
+    var LogOrRegUrl = {
+        loginCaptcha: '/Order/Common/LoginDrawImage', //图形验证码
+        SecurityVerify: '/Order/Common/NewSecurityVerify', //快速登录，图形验证码
+        Login: '/Order/LoginOrRegister/Login', //普通登录
+        SendMessage: '/Order/LoginOrRegister/SendMessage', //发送验证码
+        FastLogin: '/Order/LoginOrRegister/FastLogin', //快速登录
+        Register: '/Order/LoginOrRegister/Register',//用户注册
+        ReturnUrl:"https://www.1hai.cn/"
+    };
+    </script>
+    <script src="/jsscsspc/crypto.min.js"></script>
+    <script src="/jsscsspc/jsEncrypt.js"></script>
+    <script src="/jsscsspc/mshowBox.js"></script>
+    <script type="text/javascript" src="/jsscsspc/loginOrRegister"></script>
+
+
+
+<ins id="newBridge"><!-- target: nodeBoard --><ins class="nb-nodeboard-base nb-nodeboard-position-base nb-nodeboard-left-bottom nb-hide" id="nb_nodeboard"><ins class="nb-nodeboard-contain-base nb-nodeboard-contain"><ins class="nb-nodeboard-top nb-nodeboard-top-0"><ins class="nb-head-title">请您留言</ins><ins class="nb-nodeboard-close" id="nb_nodeboard_close" data-type="min"></ins></ins><form id="nb_nodeboard_form" autocomplete="off" class="nb-board-form" action="https://p.qiao.baidu.com/cps//bookmanage/saveBook.action?userId=1362481" method="post" accept-charset="utf-8"><ins id="nb_nodeboard_set" class="nb-nodeboard-set"><ins class="nb-nodeboard-content"><textarea id="nb-nodeboard-set-content-js" name="content" data-ph="请在此输入留言内容，我们会尽快与您联系。（必填）" placeholder="请在此输入留言内容，我们会尽快与您联系。（必填）" class="nb-nodeboard-set-content nb-nodeboard-param"></textarea></ins><ins class="nb-nodeboard-name" style="z-index:4;"><ins class="nb-nodeboard-icon nodeName"></ins><input id="nb_nodeboard_set_name" data-write="1" name="visitorName" maxlength="30" class="nb-nodeboard-input nb-nodeboard-param" type="text" data-ph="姓名（必填）" placeholder="姓名（必填）"></ins><ins class="nb-nodeboard-name" id="nb_nodeboard_phone" style="z-index:3;"><ins class="nb-nodeboard-icon nodePhone"></ins><input id="nb_nodeboard_set_phone" name="visitorPhone" maxlength="30" class="nb-nodeboard-input nb-nodeboard-param" data-write="1" type="text" data-ph="电话（必填）" placeholder="电话（必填）"></ins></ins></form><ins class="nb-nodeboard-success" id="nb_nodeboard_success"><ins class="nb-success-box"><ins class="nb-success-icon"></ins><ins class="nb-success-title" id="nb_node_messagetitle">感谢留言</ins><ins class="nb-success-content" id="nb_node_messagecontent">我们会尽快与您联系</ins><ins id="nb_nodeboard_return" class="nb-sucess-close">关闭</ins></ins></ins><ins class="nb-nodeboard-send" id="nb_node_contain"><ins id="nb_nodeboard_send" class="nb-nodeboard-send-btn nb-nodeboard-send-btn-0">发送</ins></ins></ins></ins><!-- end --><!-- target: invite --><ins class="nb-invite-wrap nb-invite-wrap-base nb-position-base nb-left-bottom  " id="nb_invite_wrap" style="width:290px;display:none;;"><ins class="nb-invite-body nb-invite-skin-0" style="height:125px;;"><ins class="nb-invite-tool nb-invite-tool-base" id="nb_invite_tool" style=""></ins><ins class="nb-invite-text nb-invite-text-base"><ins class="nb-invite-welcome nb-invite-welcome-base nb-show" id="nb_invite_welcome"><p style="color: #fff">欢迎来到本网站，请问有什么可以帮您？</p></ins></ins><ins class="nb-invite-btn-base nb-invte-btns-0"><ins class="nb-invite-cancel nb-invite-cancel-base" id="nb_invite_cancel">稍后再说</ins><ins class="nb-invite-ok nb-invite-ok-base" id="nb_invite_ok">现在咨询</ins></ins></ins></ins><!-- end --></ins></body></html>
