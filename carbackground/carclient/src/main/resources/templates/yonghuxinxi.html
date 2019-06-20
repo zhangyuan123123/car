@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)https://my.1hai.cn/UserCenter -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>我的一嗨</title>
+    <link rel="shortcut icon" href="https://www.1hai.cn/favicon.ico?v=e9586f5e64934eb0be628fb6107f4a72" type="image/x-icon">
+    <link href="/jsscssyhxinxi/bootstrap.min.css" rel="stylesheet">
+    <link href="/jsscssyhxinxi/Global.css" rel="stylesheet">
+    <link href="/jsscssyhxinxi/loginRegister.css" rel="stylesheet">
+
+
+    <!--layui js css-->
+    <script src="/layui/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" href="/layui/css/layui.css" />
+    <link rel="stylesheet" href="/layui/css/modules/laydate/default/laydate.css">
+    <link rel="stylesheet" href="/layui/css/layui.css"  media="all">
+    <script type="text/javascript" src="/layui/layui.js"></script>
+    <script src="/layui/layui.all.js" charset="UTF-8"></script>
+    <!--layui js css 结束-->
+
+
+
+    <script>
+        $(function () {
+            initzhanghaoxinxi(1);
+        })
+        function initzhanghaoxinxi(id){
+            $.ajax({
+                url: '/car/selectUserById',
+                data: {id: id},
+                dataType: 'json',
+                success: function (data) {
+                    //物流公司左侧信息
+                    var html = "";
+                    var shenfenleixing="";
+                    for (var i = 0; i < data.length; i++) {
+                        var b=data[i].sfz;
+                        if(b!=null&b!=""){
+                            shenfenleixing ="身份证";
+                        }
+                        alert();
+                      html+= "        <div class=\"ui-bfc information-index-panel\">\n" +
+                          "            <div class=\"ui-bfc-hd hd\">\n" +
+                          "                <img src=\"/jsscssyhxinxi/bg_user_photo.png\" width=\"99\" height=\"99\" alt=\"刘福祥\">\n" +
+                          "            </div>\n" +
+                          "            <div class=\"ui-bfc-bd bd\">\n" +
+                          "                <table width=\"100%\">\n" +
+                          "                    <tbody><tr>\n" +
+                          "                        <td class=\"cell-title\">电子邮件：</td>\n" +
+                          "                        <td>\n" +
+                          "                            <p></p>\n" +
+                          "                                <span class=\"gray\">(未验证)</span>\n" +
+                          "<a href=\"https://my.1hai.cn/UserCenter/MyInfo/ValidateEmail?type=0\">立即验证</a>                        </td>\n" +
+                          "                    </tr>\n" +
+                          "                    <tr>\n" +
+                          "                        <td class=\"cell-title\">手机号码：</td>\n" +
+                          "                        <td>\n" +
+                          "                            <p>"+data[i].userPhone+"</p>\n" +
+                          "                            <span class=\"gray\">(已验证)</span>\n" +
+                          "                            <a href=\"https://my.1hai.cn/UserCenter/MyInfo/ValidatePhone\">修改</a>\n" +
+                          "                        </td>\n" +
+                          "                    </tr><tr>\n" +
+                          "                        <td colspan=\"2\">\n" +
+                          "                            <div class=\"dashed-border\"></div>\n" +
+                          "                        </td>\n" +
+                          "                    </tr>\n" +
+                          "                    <tr>\n" +
+                          "                        <td class=\"cell-title\">姓名：</td>\n" +
+                          "                        <td>"+data[i].name+"</td>\n" +
+                          "                    </tr>\n" +
+                          "                    <tr>\n" +
+                          "                        <td class=\"cell-title\">证件类型：</td>\n" +
+                          "                        <td>"+shenfenleixing+"</td>\n" +
+                          "                    </tr>\n" +
+                          "                    <tr>\n" +
+                          "                        <td class=\"cell-title\">证件号码：</td>\n" +
+                          "                        <td>\n" +
+                          "                            <p>"+data[i].sfz+"</p>\n" +
+                          "                                <a class=\"card-revise\" href=\"javascript:void(0);\" data-toggle=\"modal\" data-target=\"#myModal\">添加</a>\n" +
+                          "                        </td>\n" +
+                          "\n" +
+                          "                    </tr>\n" +
+                          "                    <tr>\n" +
+                          "                        <td class=\"cell-title\">生日：</td>\n" +
+                          "                        <td id=\"BirthdayTd\"></td>\n" +
+                          "                    </tr>\n" +
+                          "                    <tr>\n" +
+                          "                        <td colspan=\"2\">\n" +
+                          "                            <div class=\"dashed-border\"></div>\n" +
+                          "                        </td>\n" +
+                          "                    </tr>\n" +
+                          "                </tbody></table>\n" +
+                          "            </div>\n" +
+                          "            <div class=\"ui-bfc-jz\">\n" +
+                          "                <table width=\"100%\">\n" +
+                          "                    <tbody>\n" +
+                          "                        <tr>\n" +
+                          "                            <td class=\"cell-title\">驾驶证认证：</td>\n" +
+                          "                            <td>\n" +
+                          "                                <p>未上传</p>                                \n" +
+                          "                                    <a id=\"BtnOptlicense\" href=\"javascript:void(0)\">编辑</a>\n" +
+                          "                            </td>\n" +
+                          "                        </tr>\n" +
+                          "                        <tr>\n" +
+                          "                            <td class=\"cell-title\">紧急联系人姓名：</td>\n" +
+                          "                            <td>\n" +
+                          "                                <p></p>\n" +
+                          "                                    <a id=\"BtnOptContact\" href=\"javascript:void(0)\">编辑</a>\n" +
+                          "                            </td>\n" +
+                          "                        </tr>\n" +
+                          "                        <tr>\n" +
+                          "                            <td class=\"cell-title\">紧急联系人手机：</td>\n" +
+                          "                            <td>\n" +
+                          "                                <p></p>\n" +
+                          "                            </td>\n" +
+                          "                        </tr>\n" +
+                          "                    </tbody>\n" +
+                          "                </table>\n" +
+                          "            </div>\n" +
+                          "\n" +
+                          "        </div>\n" +
+                          "        <div class=\"operate-panel\">\n" +
+                          "            <a class=\"ui-btn ui-btn-white-l\" href=\"https://my.1hai.cn/UserCenter/MyInfo/ChangePassword\">修改密码</a>\n" +
+                          "    </div>";
+
+                    }
+                    $("#zhanghaoxinxi").html(html);
+                }
+            })
+        }
+
+    </script>
+
+<script src="/jsscssyhxinxi/pc_nb.js" charset="UTF-8"></script><link rel="stylesheet" type="text/css" href="/jsscssyhxinxi/main.css"><script type="text/javascript" src="https://p.qiao.baidu.com/cps/site/poll?cb=jsonp_bridge_1560937944491_8128893778789452&amp;l=1&amp;v=156040655756821630&amp;s=184791&amp;e=1362481&amp;dev=0&amp;auth=%7B%22anonym%22%3A0%2C%22key%22%3A%224165490409006716304clyu9883942056%22%2C%22sn%22%3A%22720851021%22%2C%22id%22%3A%22156040655756821630%22%2C%22from%22%3A4%2C%22token%22%3A%22bridge%22%7D&amp;_time=1560937944491" id="id_jsonp_bridge_1560937944491_8128893778789452" charset="utf-8"></script></head>
+<body style="">
+    <div>
+<div class="header">
+    <div class="head-top">
+        <div class="w1180 top-linkbox clear_float">
+            <div class="top-link fl">
+                <span class="top-link-bold" id="spanLogin">
+                        <span>您好，138****137</span>
+<a href="https://my.1hai.cn/User/Logout">[退出]</a>                </span>
+                <span>|</span>
+                <a href="https://my.1hai.cn/">我的一嗨</a>
+            </div>
+            <div class="top-link fr">
+                <a href="https://www.1hai.cn/NewHelp/Index" target="_blank">帮助中心</a>
+                <span>|</span>
+                <div class="site-map">
+                    <a class="site-map-drop" target="_blank" href="https://www.1hai.cn/sitemap.aspx?from=header">网站导航<em class="sit-map-up dropicon"></em></a>
+                    <div class="site-mapinfo">
+                        <div class="cover-map"></div>
+                        <div class="site-map-title">
+                            租车服务
+                        </div>
+                        <p class="site-map-link">
+                            <a href="https://www.1hai.cn/?from=header" target="_blank">自驾预订</a>
+                            <a href="https://corporate.1hai.cn/" target="_blank">企业服务</a>
+                            <a href="https://www.1hai.cn/City/?from=header" target="_blank">营业网点</a>
+                            <a href="https://booking.1hai.cn/Order/BrandStep1/?from=header" target="_blank">车型查询</a>
+                            <a href="https://news.1hai.cn/News/Dynamic/Activity" target="_blank">精彩活动</a>
+                            <a href="https://www.1hai.cn/help/RentCarService.aspx" target="_blank">租车协议</a>
+                            <a href="https://international.1hai.cn/" target="_blank">国际租车</a>
+                        </p>
+                        <div class="site-map-title">
+                            活动产品
+                        </div>
+                        <p class="site-map-link">
+                            <a href="https://www.1hai.cn/ppl_tiyan.aspx?from=header" target="_blank">体验分享</a>
+                            <a href="https://www.1hai.cn/activity/mobile.aspx" target="_blank">移动客户端</a>
+                        </p>
+                        <div class="site-map-title">
+                            帮助中心
+                        </div>
+                        <p class="site-map-link">
+                            <a href="https://www.1hai.cn/NewHelp/Index" target="_blank">帮助中心</a>
+                            <a href="https://www.1hai.cn/help/advice.aspx" target="_blank">建议专区</a>
+                            <a href="https://www.1hai.cn/help/contactus.aspx" target="_blank">联系我们</a>
+                        </p>
+                        <div class="site-map-title">
+                            其他内容
+                        </div>
+                        <p class="site-map-link">
+                            <a href="https://news.1hai.cn/News/About/" target="_blank">一嗨简介</a>
+                            <a href="https://news.1hai.cn/News" target="_blank">一嗨动态</a>
+                            <a href="https://www.1hai.cn/more/link.aspx?from=header" target="_blank">友情链接</a>
+                            <a href="https://en.1hai.cn/" target="_blank">English</a>
+                        </p>
+                        <div class="site-map-more">
+                            <a href="https://www.1hai.cn/sitemap.aspx?from=header" target="_blank">访问网站地图&gt;&gt;</a>
+                        </div>
+                    </div>
+                </div>
+                <span>|</span>
+                <a href="https://en.1hai.cn/" target="_blank">English</a>
+                <span>|</span>
+                <div class="site-contact">
+                    <span class="contact-phone">400-888-6608<em class="contact-up dropicon"></em></span>
+                    <div class="contact-info">
+                        <div class="cover-contact" style="width: 94px;"></div>
+                        港澳台及海外电话
+                        <em>+86-511-81886608</em>
+                    </div>
+                </div>
+                <span>|</span>
+                <div class="site-wx">
+                    <span class="wx-title">微信</span>
+                    <div class="wx-info">
+                        <div class="cover-wx"></div>
+                        <img src="/jsscssyhxinxi/wx_code.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="head-bottom">
+        <div class="w1180">
+            <a href="https://www.1hai.cn/" class="logo"></a>
+            <div class="nav">
+                <ul class="nav-wrap clear_float" id="J_NavBox">
+                    <li><a href="https://www.1hai.cn/index.aspx?from=Nav" target="_blank">首页</a><span></span></li>
+                    <li class=""><a href="https://booking.1hai.cn/?from=NavIndex&amp;IsBatch=false" target="_blank">自驾租车</a><span></span></li>
+                    <li><a href="https://international.1hai.cn/" target="_blank">国际租车</a><span></span><em></em></li>
+                    <li><a href="https://booking.1hai.cn/Order/BrandStep1/?from=NavBrandIndex" target="_blank">车型查询</a><span></span></li>
+                    <li><a href="https://www.1hai.cn/City/?from=Nav" target="_blank" class="selected">营业网点</a><span></span></li>
+                    <li><a href="https://corporate.1hai.cn/?from=Nav" target="_blank">企业服务</a><span></span></li>
+                    <li><a href="https://www.1hai.cn/guide.aspx?from=Nav" target="_blank">接送服务</a><span></span></li>
+                    <li><a href="https://news.1hai.cn/News/Dynamic/Activity" target="_blank">精彩活动</a><span></span></li>
+                    <li><a href="https://www.1hai.cn/ppl_tiyan.aspx?from=Nav" target="_blank">体验分享</a><span></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+        
+        
+
+<div id="crumbs">
+    <div class="crumbs-bd">
+        当前位置：
+        <a href="https://my.1hai.cn/">我的一嗨</a> &gt;
+    用户信息
+    </div>
+</div><!-- /crumbs -->
+
+<div id="content">
+    <div class="content-bd">
+
+        <div class="col-main">
+            
+<link rel="stylesheet" href="/jsscssyhxinxi/bootstrap-datetimepicker.min.css">
+
+<div class="information">
+    <h2>用户信息</h2>
+<!--<div>
+
+    <form id="roleForm" class="layui-form layui-form-pane" method="post" action="" style="margin-top: 20px;">
+        <input id="pageNum" type="hidden" name="pageNum"/>
+        <input id="id" type="hidden" name="id"/>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">角色名称</label>
+            <div class="layui-input-inline">
+                <input id="name" name="name" lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">角色描述</label>
+            <div class="layui-input-inline">
+                <input id="info" name="info" lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">权限</label>
+            <div class="layui-input-inline">
+                <select name="permissions"  xm-select="permissions" xm-select-search="/class/selectPermission">
+
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block" style="margin-left: 10px;">
+                <button class="layui-btn"  lay-submit="" lay-filter="roleSubmit"  onclick="addRole()">提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+</div>-->
+   <div class="mod information-index" id="zhanghaoxinxi">
+        </div>
+</div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header add-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        添加证件类型及号码
+                    </h4>
+                </div>
+                <div class="modal-body add-body">
+                    <div class="card-number">
+                        <span>真实姓名</span>
+                        <input type="text" maxlength="20" name="Name" placeholder="请输入您的真实姓名" id="Name">
+                    </div>
+
+                    <div class="card-type">
+                        <span>证件类型</span>
+                        <input id="0" class="sel-card" type="text" placeholder="请选择证件类型" value="" readonly="" data-isauth="False">
+                        <div class="card-type-sel" style="display: none;">
+                            <span id="1" data-type="1010101">身份证</span>
+                            <span id="2" data-type="1010102">护照</span>
+                            <span id="3" data-type="1010103">军官证</span>
+                            <span id="4" data-type="1010104">台胞证</span>
+                            <span id="5" data-type="1010105">港澳居民来往内地通行证</span>
+                        </div>
+                        <input type="hidden" name="idCardType" value="1010106" id="idCardType">
+                    </div>
+
+                    <div class="card-number">
+                        <span>证件号</span>
+                        <input type="text" maxlength="18" name="idCardNo" placeholder="请输入您的证件号" id="idCardNo">
+                    </div>
+                    <input type="hidden" value="" id="J_inBirthday">
+                    <input type="submit" name="name" value="添 加" class="card-btn" id="btnSubmit">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+        </div>
+
+        <!--站点导航-->
+
+
+<div class="col-sub">
+    <dl class="sub-nav">
+       
+    <dt>我的订单</dt>
+            <dd>
+                <a class="" href="https://my.1hai.cn/Order/MyOrders">订单管理</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/Order/InternationalOrder">国际订单</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/Order/DriverOrder">他人代订</a>
+            </dd>
+    <dt>我的资产</dt>
+            <dd>
+                <a class="" href="https://my.1hai.cn/Asset/Account">账户余额</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/Asset/GiftCard">我的礼品卡</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/Asset/Promotion">我的优惠编码</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/Asset/MyPoint">我的积分</a>
+            </dd>
+    <dt>个人中心</dt>
+            <dd>
+                <a class=" ck" href="https://my.1hai.cn/UserCenter">用户信息</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/UserCenter/MyDrivers">常用租车人</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/UserCenter/MyInvoices">我的发票</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/UserCenter/MyVATInvoices">增票资质</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/UserCenter/MyViolation">我的违章</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/UserCenter/MyComplaint">在线投诉</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/Asset/Point/Mall">积分商城</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/UserCenter/MyEnterprise">企业信息</a>
+            </dd>
+            <dd>
+                <a class="" href="https://my.1hai.cn/UserCenter/AccountLogout">申请注销账户</a>
+            </dd>
+
+    </dl>
+</div>
+        <!--站点导航-->
+    </div>
+</div>
+
+
+
+<div id="footer" class="footer">
+    <div class="footer-bd clearfix">
+        <div class="footer-nav">
+            <p>
+                <a href="https://news.1hai.cn/About/" rel="nofollow" target="_blank">关于一嗨</a>
+                |
+                <a href="https://www.1hai.cn/activity/mobile.aspx" rel="nofollow" target="_blank">移动客户端</a>
+                |
+                <a href="https://www.1hai.cn/NewHelp/Index" rel="nofollow" target="_blank">帮助中心</a>
+                |
+                <a href="https://www.1hai.cn/help/advice.aspx" rel="nofollow" target="_blank">建议专区</a>
+                |
+                <a href="https://www.1hai.cn/help/contactus.aspx" rel="nofollow" target="_blank">联系我们</a>
+                |
+                <a href="https://www.1hai.cn/more/link.aspx" rel="nofollow" target="_blank">友情链接</a>
+                <span class="tel">投诉通道：400-821-1608</span>
+            </p>
+            <p>
+                Copyright © 2007-2019 上海一嗨信息技术服务有限公司
+                <a href="http://www.miibeian.gov.cn/" target="_blank">ICP证：沪B2-20140130</a>
+            </p>
+        </div>
+
+        <div class="footer-right">
+            <a href="https://www.sgs.gov.cn/lz/licenseLink.do?method=licenceView&amp;entyId=20120327164136446" target="_blank">
+                <img src="/jsscssyhxinxi/foot_shgs.png">
+            </a>
+            <a href="http://www.zx110.org/" target="_blank">
+                <img src="/jsscssyhxinxi/foot_zxw.png">
+            </a>
+            <a href="https://shuidi.cn/companyextreme-0752d1acddc459c11bb8f943671a3347.html" target="_blank" style="vertical-align: -3px;">
+                <img src="/jsscssyhxinxi/foot_sdxy.png">
+            </a>
+            <a href="http://sealinfo.trustutn.org/info?sn=970161104025192983174" target="_blank" style="vertical-align: -3px;">
+                <img src="/jsscssyhxinxi/foot_ppgw.png">
+            </a>
+            <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010702001166" target="_blank" style="vertical-align: -3px;">
+                <img src="/jsscssyhxinxi/foot_hgwab.png">
+            </a>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Script -->
+    <script src="/jsscssyhxinxi/jquery"></script>
+
+    <script src="/jsscssyhxinxi/bootstrap"></script>
+
+    <script src="/jsscssyhxinxi/portal-header.js"></script>
+    
+    <script src="/jsscssyhxinxi/global.js"></script>
+    
+    <div class="perfect-box" id="PerfectContact">
+        <div class="perfect-bg"></div>
+        <div class="perfect-info">
+            <h3 class="popupTitie">完善紧急联系人</h3>
+            <div class="perfect-close"></div>
+            <div id="divEmergencyContact"></div>
+        </div>
+    </div>
+    <div class="perfect-box" id="PerfectLicense">
+        <div class="perfect-bg"></div>
+        <div class="perfect-info">
+            <h3 class="popupTitie">驾驶证认证<span class="licensetype">(未上传)</span></h3>
+            <div class="perfect-close"></div>
+            <div id="divDrivingLicense">
+                
+   
+<div class="jz-prove jz-provefront" id="provefront">
+<form action="https://my.1hai.cn/UserCenter/MyInfo/UploadImage" enctype="multipart/form-data" id="uploadForm_f" method="post">        <p>
+            <input type="hidden" name="isFrontImage" value="1">
+            <span>上传驾驶证正页<em>*</em>:</span>
+            <a class="jzzp-seefront" target="_blank">
+                <img id="frontImage" style="display: none;">
+            </a>
+            <input class="jzzp" type="button" value="浏览" id="J_homepage">
+            <input type="file" id="jzHomePage" name="image" style="display: none;">
+            <input type="hidden" id="number" name="number" value="1">
+        </p>
+</form>    <form action="https://my.1hai.cn/UserCenter/MyInfo/UploadImage" enctype="multipart/form-data" id="uploadForm_b" method="post">        <p>
+            <input type="hidden" name="isFrontImage" value="0">
+            <span>上传驾驶证副页<em>*</em>:</span>
+            <a class="jzzp-seeback" target="_blank">
+                <img id="backImage" style="display: none;">
+            </a>
+            <input class="jzzp" type="button" value="浏览" id="J_vicepage">
+            <input type="file" id="jzVicePage" name="image" style="display: none;">
+            <input type="hidden" id="num" name="number" value="0">
+        </p>
+</form>
+    <p class="jz-picprompt">注：文件支持大小不超过500k的jpg、gif格式的图片</p>
+
+    <div class="jz-provenext">
+        <input id="J_provenext" class="unify-btn unify-btn-lg unify-btn-org" value="下一步" type="button">
+    </div>
+</div>
+    
+<div class="jz-proveback" id="auth">
+</div>
+
+<div class="jz-prove jz-provesuccess">
+    <p>
+        <span>上传驾驶证正页<em>*</em>:</span>
+        <img>
+        <a target="_blank">查看</a>
+    </p>
+    <p>
+        <span>上传驾驶证副页<em>*</em>:</span>
+        <img>
+        <a target="_blank">查看</a>
+    </p>
+    <p class="jz-picprompt">注：文件支持大小不超过500k的jpg、gif格式的图片</p>
+
+    <div class="jz-proveoperate">
+        <input id="modify_D_Btn" class="unify-btn unify-btn-lg unify-btn-blue" value="修改" type="button">
+        <input id="delete_D_Btn" class="unify-btn unify-btn-lg unify-btn-org" value="删除" type="button">
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+<!--    <script type="text/javascript">
+        var userVerify = "True";
+        var Url = {
+            EmergencyContact: '/UserCenter/MyInfo/EmergencyContact',
+            SubmitEmergencyContact: '/UserCenter/MyInfo/SubmitEmergencyContact',
+            DrivingLicense: '/UserCenter/MyInfo/DrivingLicense',
+            ValidateImageFront: '/UserCenter/MyInfo/ValidateImageFront',
+            AuthImage:'/UserCenter/MyInfo/DrivingLicenceAuth',
+            MyInfo: '/UserCenter',
+            UploadImage: '/UserCenter/MyInfo/UploadImage',
+            UpdateIdCardInfo: '/UserCenter/MyInfo/UpdateIdCardInfo',
+            DeleteDrivingLicense:'/UserCenter/MyInfo/DeleteDrivingLicense'
+        };
+    </script>-->
+  <!--  <script>
+        $(function () {
+            $(".sel-year").click(function () {
+                var birthday = $('#J_inBirthday').val().trim();
+                if (birthday.length === 0) {
+                    $(".card-year-sel").show();
+                    $(".card-month-sel").hide();
+                    $(".card-day-sel").hide();
+                }
+            });
+            $(".sel-month").click(function () {
+                var birthday = $('#J_inBirthday').val().trim();
+                if (birthday.length === 0) {
+                    $(".card-month-sel").show();
+                    $(".card-year-sel").hide();
+                    $(".card-day-sel").hide();
+                }
+            });
+            $(".sel-day").click(function () {
+                var birthday = $('#J_inBirthday').val().trim();
+                if (birthday.length === 0) {
+                    $(".card-day-sel").show();
+                    $(".card-year-sel").hide();
+                    $(".card-month-sel").hide();
+                }
+            });
+
+
+            //证件号
+            $(".sel-card").click(function () {
+                var isauth = $(this).data('isauth');
+                if (isauth === 'False') {
+                    $(".card-type-sel").show();
+                }
+            });
+            $(".card-type-sel span").mousedown(function () {
+                var $this = $(this);
+                $(".sel-card").val($this.text()).attr("id", this.id);
+                $("#idCardType").val($this.data("type"));
+                var type = $this.data("type");
+                if (type !== 1010101) {
+                    $('.card-birthday').show();
+                } else if (type === 1010101) {
+                    $('.card-birthday').hide();
+                }
+                $(".card-type-sel").hide();
+            });
+
+
+            $(document).click(function (e) {
+                if ($(e.target).is(".card-type-sel,.sel-card")) {
+                    return false;
+                }
+                $(".card-type-sel").hide();
+            });
+        });
+
+
+        if (!String.prototype.trim) {
+            String.prototype.trim = function () {
+                return this.replace(/^\s+|\s+$/g, '');
+            }
+        }
+    </script>
+    <script src="/jsscssyhxinxi/bootstrap-datetimepicker.min.js"></script>
+    <script src="/jsscssyhxinxi/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="/jsscssyhxinxi/jquery.form.min.js"></script>
+    <script src="/jsscssyhxinxi/myinfo.js"></script>
+
+
+    <script type="text/javascript">
+        $.ajaxSetup({
+            statusCode: {
+                800: function (data) {
+                    
+                    window.location.href = "https://www.baidu.com";
+                }
+            }
+        });
+    </script>
+    <script>
+        (function (para) {
+            var p = para.sdk_url, n = para.name, w = window, d = document, s = 'script', x = null, y = null;
+            if (typeof (w['sensorsDataAnalytic201505']) !== 'undefined') {
+                return false;
+            }
+            w['sensorsDataAnalytic201505'] = n;
+            w[n] = w[n] || function (a) { return function () { (w[n]._q = w[n]._q || []).push([a, arguments]); } };
+            var ifs = ['track', 'quick', 'register', 'registerPage', 'registerOnce', 'trackSignup', 'trackAbtest', 'setProfile', 'setOnceProfile', 'appendProfile', 'incrementProfile', 'deleteProfile', 'unsetProfile', 'identify', 'login', 'logout', 'trackLink', 'clearAllRegister', 'getAppStatus'];
+            for (var i = 0; i < ifs.length; i++) {
+                w[n][ifs[i]] = w[n].call(null, ifs[i]);
+            }
+            if (!w[n]._t) {
+                x = d.createElement(s), y = d.getElementsByTagName(s)[0];
+                x.async = 0;
+                x.src = p;
+                x.setAttribute('charset', 'UTF-8');
+                y.parentNode.insertBefore(x, y);
+                w[n].para = para;
+            }
+        })({
+            sdk_url: 'https://static.sensorsdata.cn/sdk/1.12.3/sensorsdata.min.js',
+            heatmap_url: 'https://static.sensorsdata.cn/sdk/1.12.3/heatmap.min.js',
+            name: 'ehiSensors',
+            web_url: 'https://sensors.1hai.cn:9443/?project=production',
+            server_url: 'https://sensors.1hai.cn:11621/sa?project=production',
+            heatmap: {}
+            });
+        ehiSensors.quick('autoTrack');
+        var ehiid = "1920080676";
+        if (ehiid.length > 0) {
+            sensors.login(ehiid);
+        }
+    </script>-->
+
+
+        <script src="/jsscssyhxinxi/monitor-my.js"></script><script src="/jsscssyhxinxi/h.js" type="text/javascript"></script>
+<!--    <script type="text/javascript" async="async">
+
+        var _smq = _smq || [];
+        _smq.push(['_setAccount', '251d452', new Date()]);
+        _smq.push(['pageview']);
+        (function () {
+            var sm = document.createElement('script'); sm.type = 'text/javascript'; sm.async = true;
+            sm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdnmaster.com/sitemaster/sm.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sm, s);
+        })();
+
+    </script>
+    <script>
+    (function (para) {
+        var p = para.sdk_url, n = para.name, w = window, d = document, s = 'script', x = null, y = null;
+        if (typeof (w['sensorsDataAnalytic201505']) !== 'undefined') {
+            return false;
+        }
+        w['sensorsDataAnalytic201505'] = n;
+        w[n] = w[n] || function (a) { return function () { (w[n]._q = w[n]._q || []).push([a, arguments]); } };
+        var ifs = ['track', 'quick', 'register', 'registerPage', 'registerOnce', 'trackSignup', 'trackAbtest', 'setProfile', 'setOnceProfile', 'appendProfile', 'incrementProfile', 'deleteProfile', 'unsetProfile', 'identify', 'login', 'logout', 'trackLink', 'clearAllRegister', 'getAppStatus'];
+        for (var i = 0; i < ifs.length; i++) {
+            w[n][ifs[i]] = w[n].call(null, ifs[i]);
+        }
+        if (!w[n]._t) {
+            x = d.createElement(s), y = d.getElementsByTagName(s)[0];
+            x.async = 0;
+            x.src = p;
+            x.setAttribute('charset', 'UTF-8');
+            y.parentNode.insertBefore(x, y);
+            w[n].para = para;
+        }
+    })({
+        sdk_url: 'https://static.sensorsdata.cn/sdk/1.12.3/sensorsdata.min.js',
+        heatmap_url: 'https://static.sensorsdata.cn/sdk/1.12.3/heatmap.min.js',
+        name: 'ehiSensors',
+        web_url: 'https://sensors.1hai.cn:9443/?project=production',
+        server_url: 'https://sensors.1hai.cn:11621/sa?project=production',
+        heatmap: {}
+    });
+
+    ehiSensors.quick('autoTrack');
+    var ehiid = "1920080676";
+    if (ehiid.length > 0) {
+        sensors.login(ehiid);
+    }
+    </script>-->
+<!--    <script>
+    var LogOrRegUrl = {
+        loginCaptcha: '/UserCenter/Common/LoginDrawImage', //图形验证码
+        SecurityVerify: '/UserCenter/Common/NewSecurityVerify', //快速登录，图形验证码
+        Login: '/UserCenter/LoginOrRegister/Login', //普通登录
+        SendMessage: '/UserCenter/LoginOrRegister/SendMessage', //发送验证码
+        FastLogin: '/UserCenter/LoginOrRegister/FastLogin', //快速登录
+        Register: '/UserCenter/LoginOrRegister/Register',//用户注册
+        ReturnUrl:"https://my.1hai.cn/Order/InternationalOrder"
+    };
+    </script>-->
+    <script src="/jsscssyhxinxi/crypto.min.js"></script>
+    <script src="/jsscssyhxinxi/jsEncrypt.js"></script>
+    <script src="/jsscssyhxinxi/mshowBox.js"></script>
+    <script type="text/javascript" src="/jsscssyhxinxi/loginOrRegister"></script>
+
+
+
+<ins id="newBridge"><!-- target: nodeBoard --><ins class="nb-nodeboard-base nb-nodeboard-position-base nb-nodeboard-left-bottom nb-hide" id="nb_nodeboard"><ins class="nb-nodeboard-contain-base nb-nodeboard-contain"><ins class="nb-nodeboard-top nb-nodeboard-top-0"><ins class="nb-head-title">请您留言</ins><ins class="nb-nodeboard-close" id="nb_nodeboard_close" data-type="min"></ins></ins><form id="nb_nodeboard_form" autocomplete="off" class="nb-board-form" action="https://p.qiao.baidu.com/cps//bookmanage/saveBook.action?userId=1362481" method="post" accept-charset="utf-8"><ins id="nb_nodeboard_set" class="nb-nodeboard-set"><ins class="nb-nodeboard-content"><textarea id="nb-nodeboard-set-content-js" name="content" data-ph="请在此输入留言内容，我们会尽快与您联系。（必填）" placeholder="请在此输入留言内容，我们会尽快与您联系。（必填）" class="nb-nodeboard-set-content nb-nodeboard-param"></textarea></ins><ins class="nb-nodeboard-name" style="z-index:4;"><ins class="nb-nodeboard-icon nodeName"></ins><input id="nb_nodeboard_set_name" data-write="1" name="visitorName" maxlength="30" class="nb-nodeboard-input nb-nodeboard-param" type="text" data-ph="姓名（必填）" placeholder="姓名（必填）"></ins><ins class="nb-nodeboard-name" id="nb_nodeboard_phone" style="z-index:3;"><ins class="nb-nodeboard-icon nodePhone"></ins><input id="nb_nodeboard_set_phone" name="visitorPhone" maxlength="30" class="nb-nodeboard-input nb-nodeboard-param" data-write="1" type="text" data-ph="电话（必填）" placeholder="电话（必填）"></ins></ins></form><ins class="nb-nodeboard-success" id="nb_nodeboard_success"><ins class="nb-success-box"><ins class="nb-success-icon"></ins><ins class="nb-success-title" id="nb_node_messagetitle">感谢留言</ins><ins class="nb-success-content" id="nb_node_messagecontent">我们会尽快与您联系</ins><ins id="nb_nodeboard_return" class="nb-sucess-close">关闭</ins></ins></ins><ins class="nb-nodeboard-send" id="nb_node_contain"><ins id="nb_nodeboard_send" class="nb-nodeboard-send-btn nb-nodeboard-send-btn-0">发送</ins></ins></ins></ins><!-- end --><!-- target: invite --><ins class="nb-invite-wrap nb-invite-wrap-base nb-position-base nb-left-bottom  " id="nb_invite_wrap" style="width:290px;display:none;;"><ins class="nb-invite-body nb-invite-skin-0" style="height:125px;;"><ins class="nb-invite-tool nb-invite-tool-base" id="nb_invite_tool" style=""></ins><ins class="nb-invite-text nb-invite-text-base"><ins class="nb-invite-welcome nb-invite-welcome-base nb-show" id="nb_invite_welcome"><p style="color: #fff">欢迎来到本网站，请问有什么可以帮您？</p></ins></ins><ins class="nb-invite-btn-base nb-invte-btns-0"><ins class="nb-invite-cancel nb-invite-cancel-base" id="nb_invite_cancel">稍后再说</ins><ins class="nb-invite-ok nb-invite-ok-base" id="nb_invite_ok">现在咨询</ins></ins></ins></ins><!-- end --></ins></body></html>
