@@ -9,7 +9,10 @@ import java.util.List;
 public interface PersonalcenterDao {
 
     //查看当前用户下的所有订单
-    @Select("select * from user u,ordergoods og where u.userId=og.goodUserId\n" +
+    @Select("select u.*,og.*,x.carXingName as carXingName ,c.carNumber as number from user u,ordergoods og, t_carguanli c, t_carxingname x \n" +
+            "where u.userId=og.goodUserId \n" +
+            "  AND og.carId = c.id\n" +
+            "AND c.carXing = x.id\n" +
             "and u.userId =#{id}")
     List<ordergoods> selectorder(Integer id);
 
@@ -25,14 +28,30 @@ public interface PersonalcenterDao {
     List<ordergoods> selectdingdanall(Integer id);
 
     //查看用户正在租赁的订单
-    @Select("select og.* from user u, ordergoods og where u.userId= og.goodUserId and og.zhuangtai=1 and og.status=1 and og.endTime >=SYSDATE() and u.userId =#{id} ")
+
+    @Select("select u.*,og.*,x.carXingName as carXingName ,c.carNumber as number from user u,ordergoods og, t_carguanli c, t_carxingname x \n" +
+            "where u.userId=og.goodUserId \n" +
+            "  AND og.carId = c.id\n" +
+            "AND c.carXing = x.id\n" +
+            "and og.zhuangtai=1 and og.status=1 and og.endTime >=SYSDATE()\n" +
+            "and u.userId =#{id} ")
     List<ordergoods> selectdingdanByzhuangtai(Integer id);
 
     //查看用户已经租赁完成的订单
-    @Select("select og.* from user u, ordergoods og where u.userId= og.goodUserId and og.zhuangtai=2 and og.status=1 and og.endTime >=SYSDATE() and u.userId =#{id} ")
+    @Select("select u.*,og.*,x.carXingName as carXingName ,c.carNumber as number from user u,ordergoods og, t_carguanli c, t_carxingname x \n" +
+            "where u.userId=og.goodUserId \n" +
+            "  AND og.carId = c.id\n" +
+            "AND c.carXing = x.id\n" +
+            "and og.zhuangtai=2 and og.status=1 and og.endTime >=SYSDATE()\n" +
+            "and u.userId =#{id} ")
     List<ordergoods> seedingdanByzhuangtai(Integer id);
 
     //查看用户已经过期的订单
-    @Select("select og.* from user u, ordergoods og where u.userId= og.goodUserId and og.zhuangtai=2 and og.status=1 and og.endTime <=SYSDATE()  and u.userId =#{id} ")
+    @Select("select u.*,og.*,x.carXingName as carXingName ,c.carNumber as number from user u,ordergoods og, t_carguanli c, t_carxingname x \n" +
+            "where u.userId=og.goodUserId \n" +
+            "  AND og.carId = c.id\n" +
+            "AND c.carXing = x.id\n" +
+            "and og.zhuangtai=1 and og.status=1 and og.endTime <=SYSDATE()\n" +
+            "and u.userId =#{id} ")
     List<ordergoods> querydingdanBytime(Integer id);
 }

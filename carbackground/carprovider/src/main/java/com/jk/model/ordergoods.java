@@ -19,7 +19,24 @@ public class ordergoods {
        private  String name;
        private  Integer zhuangtai;
        private  Integer returnCarStatus;
+        private  String number;
+        private  String carXingName;
 
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getCarXingName() {
+        return carXingName;
+    }
+
+    public void setCarXingName(String carXingName) {
+        this.carXingName = carXingName;
+    }
 
     public Integer getGoodId() {
         return goodId;
