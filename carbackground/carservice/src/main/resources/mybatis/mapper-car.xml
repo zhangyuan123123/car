@@ -1,0 +1,51 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.CarMapper">
+    <select id="refer" resultType="java.util.LinkedHashMap">
+        select * from t_carguanli cg LEFT JOIN t_carxingname cx
+        on cg.carXing=cx.id  ORDER BY cg.carzucount limit 4
+    </select>
+
+    <select id="cityrefer" resultType="java.util.LinkedHashMap">
+        select * from t_area where pid=0 and id!=0
+    </select>
+
+    <select id="refermendian" resultType="java.util.LinkedHashMap">
+        select * from t_mendian where cityId=#{cityid}
+    </select>
+
+    <select id="refercar" resultType="java.util.LinkedHashMap">
+       select * from t_mendian m INNER JOIN t_carguanli c
+        on m.id=c.carMenDianId INNER JOIN t_carxingname cx
+        on c.carXing=cx.id where m.id=#{cityid}
+    </select>
+
+    <select id="hairefer" resultType="java.util.LinkedHashMap">
+        select * from t_returncaraddress where mendianId=#{hid}
+    </select>
+
+    <select id="qurefer" resultType="java.util.LinkedHashMap">
+        select * from t_sendcaraddress where mendianId=#{qid}
+    </select>
+
+    <select id="refercom" resultType="java.util.LinkedHashMap">
+        select * from coupon c INNER JOIN user u
+        on c.couponId=u.youhuiId where u.userId=#{userid}
+    </select>
+
+    <select id="referinsurance" resultType="java.util.LinkedHashMap">
+        select * from insurance
+    </select>
+
+    <insert id="addorder">
+        insert into ordergoods (goodNumber,goodUserId,insuranceId,couponStatus,goodPrice,createTime,carSome,carPoint,dateNumber,carId,endTime,status,value,name)
+        values
+         (#{goodnumber},#{uid},#{baoxian},#{youhuiquan},#{carsumprice},#{qudate},#{quchedian},#{haidian},#{datenumber},#{cid},#{haidate},2,15,#{qudate})
+    </insert>
+
+    <update id="upuser">
+        update user set shiyongyouhuiquan=2 where userId=#{uid}
+    </update>
+
+</mapper>

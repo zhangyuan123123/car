@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.HhxMapper">
+<select id="findCarCity" resultType="java.util.LinkedHashMap">
+SELECT
+	x.id id,
+	x.carXingName xingName,
+	c.carZuoWei zuoWei,
+	c.carDangType dang,
+	c.carlogo logo
+FROM
+	t_carguanli c,
+	t_area a,
+	t_mendian m,
+	t_carxingname x
+WHERE
+	c.carMenDianId = m.id
+AND m.cityId = a.id
+AND c.carXing = x.id
+AND c.carType = 1
+	<if test="cityName!=null and cityName.length()>0">
+		AND a.`name` LIKE  concat("%",concat(#{cityName},"%"))
+	</if>
+    group by c.carXing
+
+</select>
+    <select id="findCarCityByXingId" resultType="java.util.LinkedHashMap">
+        SELECT
+	x.id id,
+	x.carXingName xingName,
+	c.carZuoWei zuoWei,
+	c.carDangType dang,
+	c.carlogo logo
+FROM
+	t_carguanli c,
+	t_area a,
+	t_mendian m,
+	t_carxingname x
+WHERE
+	c.carMenDianId = m.id
+AND m.cityId = a.id
+AND c.carXing = x.id
+AND c.carType = 1
+<if test="cityName!=null and cityName.length()>0">
+	AND a.`name` LIKE  concat("%",concat(#{cityName},"%"))
+</if>
+
+and x.id=#{id}
+        GROUP BY x.id
+    </select>
+	<select id="findmendian" resultType="java.util.LinkedHashMap">
+SELECT
+	c.id carId,m.id menid,m.menDianName mendian,m.address address,c.carPrice price
+FROM
+	t_carguanli c,
+	t_mendian m,
+	t_area a
+WHERE
+	c.carMenDianId = m.id
+AND m.cityId = a.id
+AND c.carType = 1
+AND a.`name` LIKE concat("%",concat(#{cityName},"%"))
+and c.carXing=#{id}
+	</select>
+</mapper>

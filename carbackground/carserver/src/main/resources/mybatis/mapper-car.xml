@@ -1,0 +1,23 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.LjyMapper">
+
+
+
+    <!-- 首页查询轮播图 -->
+    <select id="findLunBo" resultType="com.jk.model.OssImg">
+        select * from t_oss
+    </select>
+
+    <!-- 首页查询热租车型 -->
+    <select id="findCarByCity" resultType="com.jk.model.CarModel">
+        select *,a.id as aid from t_carguanli c inner join t_mendian m on c.carmendianid=m.id inner join t_area a on m.cityid=a.id where a.id=#{cityId} order by c.carzucount desc
+    </select>
+
+    <!-- 刷新页面新增访问量 -->
+    <insert id="addVisit">
+        insert into t_visit (access,createtime,name) values (1,NOW(),now())
+    </insert>
+
+</mapper>
